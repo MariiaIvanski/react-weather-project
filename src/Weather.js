@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import WeatherInfo from "./WeatherInfo";
 import WeatherForecast from "./WeatherForecast";
 import Loader from "react-loader-spinner";
-import NavigateCity from "./NavigateCity";
 import axios from "axios";
 import "./Weather.css";
 
@@ -30,7 +29,7 @@ export default function Weather(props) {
   }
 
   function handleCityChange(event) {
-    setCity(event.target.value.trim());
+    setCity(event.target.value);
   }
 
   function search() {
@@ -39,25 +38,12 @@ export default function Weather(props) {
     axios.get(apiUrl).then(handleResponse);
   }
 
-  function importLocationWeather() {
-    function retrievePosition(position) {
-      let lat = position.coords.latitude;
-      let lon = position.coords.longitude;
-      let apiKey = "a2d283df905dedf8786b96ad24673f92";
-      let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
-
-      axios.get(url).then(handleResponse);
-    }
-    navigator.geolocation.getCurrentPosition(retrievePosition);
-  }
-
   if (weatherData.ready) {
     return (
       <div className="Weather">
-        <NavigateCity data={weatherData} />
         <form onSubmit={handleSubmit}>
           <div className="row  d-flex justify-content-start">
-            <div className="col-6">
+            <div className="col-9">
               <input
                 type="search"
                 placeholder="Enter a city.."
@@ -68,14 +54,6 @@ export default function Weather(props) {
             </div>
             <div className="col-auto">
               <input type="submit" value="Search" className="btn btn-primary" />
-            </div>
-            <div className="col-auto">
-              <input
-                type="button"
-                value="Local"
-                className="btn btn-success"
-                onClick={importLocationWeather}
-              />
             </div>
           </div>
         </form>

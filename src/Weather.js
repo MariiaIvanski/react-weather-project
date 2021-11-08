@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import WeatherInfo from "./WeatherInfo";
 import WeatherForecast from "./WeatherForecast";
 import Loader from "react-loader-spinner";
+import NavigateCity from "./NavigateCity";
 import axios from "axios";
 import "./Weather.css";
 
@@ -38,30 +39,48 @@ export default function Weather(props) {
     axios.get(apiUrl).then(handleResponse);
   }
 
+  function importLocationWeather() {
+    function retrievePosition(position) {
+      let lat = position.coords.latitude;
+      let lon = position.coords.longitude;
+      let apiKey = "a2d283df905dedf8786b96ad24673f92";
+      let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+
+      axios.get(url).then(handleResponse);
+    }
+    navigator.geolocation.getCurrentPosition(retrievePosition);
+  }
+
   if (weatherData.ready) {
     return (
       <div className="Weather">
+        <NavigateCity data={weatherData} />
         <form onSubmit={handleSubmit}>
-          <div className="row">
-            <div className="col-9">
+          <div className="row  d-flex justify-content-start">
+            <div className="col-6">
               <input
                 type="search"
                 placeholder="Enter a city.."
-                className="form-control d-flex"
+                className="form-control"
                 autoFocus="on"
                 onChange={handleCityChange}
               />
             </div>
-            <div className="col-3">
+            <div className="col-auto">
+              <input type="submit" value="Search" className="btn btn-primary" />
+            </div>
+            <div className="col-auto">
               <input
-                type="submit"
-                value="Search"
-                className="d-flex btn btn-primary"
+                type="button"
+                value="Local"
+                className="btn btn-success"
+                onClick={importLocationWeather}
               />
             </div>
           </div>
         </form>
         <WeatherInfo data={weatherData} />
+
         <WeatherForecast coordinates={weatherData.coordinates} />
       </div>
     );
@@ -73,7 +92,7 @@ export default function Weather(props) {
         color="#7868E6"
         height={100}
         width={100}
-        timeout={3000} //3 secs
+        timeout={3000}
       />
     );
   }

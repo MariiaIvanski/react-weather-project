@@ -14,7 +14,7 @@ export default function App() {
           <a
             href="https://inspiring-noyce-9d41a5.netlify.app"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             Mariia Ivanski
           </a>{" "}
@@ -22,7 +22,7 @@ export default function App() {
           <a
             href="https://github.com/MariiaIvanski/react-weather-project"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             open-sourced on GitHub
           </a>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import WeatherInfo from "./WeatherInfo";
 import WeatherForecast from "./WeatherForecast";
+import Loader from "react-loader-spinner";
 import axios from "axios";
 import "./Weather.css";
 
@@ -28,7 +29,7 @@ export default function Weather(props) {
   }
 
   function handleCityChange(event) {
-    setCity(event.target.value);
+    setCity(event.target.value.trim());
   }
 
   function search() {
@@ -46,7 +47,7 @@ export default function Weather(props) {
               <input
                 type="search"
                 placeholder="Enter a city.."
-                className="form-control"
+                className="form-control d-flex"
                 autoFocus="on"
                 onChange={handleCityChange}
               />
@@ -55,7 +56,7 @@ export default function Weather(props) {
               <input
                 type="submit"
                 value="Search"
-                className="btn btn-primary w-100"
+                className="d-flex btn btn-primary"
               />
             </div>
           </div>
@@ -66,6 +67,14 @@ export default function Weather(props) {
     );
   } else {
     search();
-    return "Loading...";
+    return (
+      <Loader
+        type="Circles"
+        color="#7868E6"
+        height={100}
+        width={100}
+        timeout={3000} //3 secs
+      />
+    );
   }
 }

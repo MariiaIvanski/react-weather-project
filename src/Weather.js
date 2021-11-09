@@ -85,13 +85,15 @@ export default function Weather(props) {
   } else {
     search();
     return (
-      <Loader
-        type="Circles"
-        color="#c6a513"
-        height={100}
-        width={100}
-        timeout={3000}
-      />
+      <div className="d-flex justify-content-center">
+        <Loader
+          type="Circles"
+          color="#c6a513"
+          height={100}
+          width={100}
+          timeout={3000}
+        />
+      </div>
     );
   }
 }

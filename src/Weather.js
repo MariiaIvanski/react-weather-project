@@ -33,17 +33,29 @@ export default function Weather(props) {
   }
 
   function search() {
-    const apiKey = "39c590036b490e160a1ac1b35a02652d";
+    const apiKey = "578088b56e619e7ac44051a64e860eb6";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
+  }
+
+  function importLocationWeather() {
+    function retrievePosition(position) {
+      let lat = position.coords.latitude;
+      let lon = position.coords.longitude;
+      let apiKey = "a2d283df905dedf8786b96ad24673f92";
+      let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+
+      axios.get(url).then(handleResponse);
+    }
+    navigator.geolocation.getCurrentPosition(retrievePosition);
   }
 
   if (weatherData.ready) {
     return (
       <div className="Weather">
         <form onSubmit={handleSubmit}>
-          <div className="row  d-flex justify-content-start">
-            <div className="col-9">
+          <div className="d-flex bd-highlight">
+            <div className="p-2 flex-grow-1 bd-highlight">
               <input
                 type="search"
                 placeholder="Enter a city.."
@@ -52,8 +64,16 @@ export default function Weather(props) {
                 onChange={handleCityChange}
               />
             </div>
-            <div className="col-auto">
+            <div className="p-2 bd-highlight">
               <input type="submit" value="Search" className="btn btn-primary" />
+            </div>
+            <div className="p-2 bd-highlight">
+              <input
+                type="button"
+                value="Local"
+                className="btn btn-success"
+                onClick={importLocationWeather}
+              />
             </div>
           </div>
         </form>

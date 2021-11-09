@@ -61,7 +61,6 @@ body {
 .App .snitch {
   animation-duration: 4s;
   animation-name: slidein;
-  animation-iteration-count: infinite;
 }
 
 @keyframes slidein {

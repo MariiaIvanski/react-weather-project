@@ -6,9 +6,10 @@ export default function App() {
   return (
     <div className="App">
       <div className="container">
-        <h1 className="AppTitle d-flex justify-content-center align-items-center">
-          Weather App
-        </h1>
+        <div className="AppTitle d-flex justify-content-center align-items-center mb-2">
+          <img src="hogwarts.png" alt="Hogwarts-coat-of-arms" />
+          <h1>Weather App</h1>
+        </div>
         <Weather defaultCity="New York" />
         <footer>
           {" "}

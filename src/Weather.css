@@ -1,6 +1,6 @@
 .Weather {
   font-family: arial, sans-serif;
-  color: #000000;
+  color: #ae0001;
   background-color: #d3a625;
   border-radius: 4px;
   padding: 16px;
@@ -9,17 +9,17 @@
 
 .Weather .WeatherInfo {
   color: #c0c0c0;
-  background: #740001;
+  background: #ae0001;
   border-radius: 4px;
   padding: 16px;
   box-shadow: 5px 5px 5px rgb(0 0 0 / 8%);
 }
 
-.Weather h1 {
-  color: #740001;
+.Weather .WeatherInfo h1 {
+  color: #c0c0c0;
   font-size: 42px;
-  font-weight: 200;
-  text-shadow: 3px 4px 5px rgb(0 0 0 / 5%);
+  font-weight: 600;
+  text-shadow: none;
   line-height: 29px;
   margin: 10px 0 0 0px;
 }

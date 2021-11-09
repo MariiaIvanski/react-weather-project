@@ -20,6 +20,15 @@ body {
   margin: 10px 0;
 }
 
+.App a {
+  color: rgb(0, 142, 140);
+  text-decoration: none;
+}
+
+.App a:hover {
+  color: rgba(0, 116, 115, 0.85);
+}
+
 .App .AppTitle {
   background: repeating-linear-gradient(
     45deg,

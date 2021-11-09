@@ -1,16 +1,19 @@
 import React from "react";
 import Weather from "./Weather";
 import "./App.css";
+import hogwarts from "./hogwarts.png";
+import snitch from "./snitch.png";
 
 export default function App() {
   return (
     <div className="App">
       <div className="container">
         <div className="AppTitle d-flex justify-content-center align-items-center mb-2">
-          <img src="hogwarts.png" alt="Hogwarts-coat-of-arms" />
+          <img src={hogwarts} alt="Hogwarts-coat-of-arms" width="50px" />
           <h1>Weather App</h1>
         </div>
-        <Weather defaultCity="New York" />
+        <Weather defaultCity="London" />
+
         <footer>
           {" "}
           This project was coded by{" "}
@@ -31,6 +34,7 @@ export default function App() {
           </a>
         </footer>
       </div>
+      <img src={snitch} alt="snitch" width="50px" className="snitch" />
     </div>
   );
 }

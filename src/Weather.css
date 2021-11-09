@@ -1,5 +1,5 @@
 .Weather {
-  font-family: arial, sans-serif;
+  font-family: "Roboto Slab", serif;
   color: #ae0001;
   background-color: #d3a625;
   border-radius: 4px;
@@ -9,7 +9,7 @@
 
 .Weather .WeatherInfo {
   color: #c0c0c0;
-  background: #ae0001;
+  background: #740001;
   border-radius: 4px;
   padding: 16px;
   box-shadow: 5px 5px 5px rgb(0 0 0 / 8%);
@@ -24,6 +24,11 @@
   margin: 10px 0 0 0px;
 }
 
+.Weather .WeatherInfo i {
+  color: #eeba30;
+  font-size: 52px;
+}
+
 .Weather ul {
   margin: 0;
   padding: 0;
@@ -31,14 +36,14 @@
 
 .Weather li {
   font-size: 16px;
-  font-weight: 100;
+  font-weight: 400;
   line-height: 19px;
   list-style: none;
 }
 
 .Weather canvas {
   color: #740001;
-  margin-right: 10px;
+  margin: 0 auto;
   display: inline-block;
 }
 
@@ -119,6 +124,11 @@
 .Weather .btn-success:active:focus,
 .Weather .show > .Weather .btn-success.dropdown-toggle:focus {
   box-shadow: 0 0 0 4px rgba(0, 116, 115, 0.5);
+}
+
+.Weather .Day-info:hover {
+  background: #eeba30;
+  cursor: context-menu;
 }
 
 @media (max-width: 900px) {

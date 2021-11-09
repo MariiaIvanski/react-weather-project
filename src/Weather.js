@@ -87,7 +87,7 @@ export default function Weather(props) {
     return (
       <Loader
         type="Circles"
-        color="#7868E6"
+        color="#c6a513"
         height={100}
         width={100}
         timeout={3000}

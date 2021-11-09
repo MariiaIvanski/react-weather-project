@@ -43,7 +43,7 @@
 
 .Weather canvas {
   color: #740001;
-  margin: 0 auto;
+  margin-right: 5px;
   display: inline-block;
 }
 

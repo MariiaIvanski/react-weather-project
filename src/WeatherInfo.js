@@ -11,7 +11,7 @@ export default function WeatherInfo(props) {
           <h1 className="mb-3">{props.data.city}</h1>
         </div>
         <div className="col-auto">
-          <i class="fas fa-bolt"></i>
+          <i className="fas fa-bolt"></i>
         </div>
       </div>
       <ul>

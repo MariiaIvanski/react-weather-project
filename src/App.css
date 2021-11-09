@@ -59,6 +59,7 @@ body {
 }
 
 .App .snitch {
+  margin-left: 10px;
   animation-duration: 4s;
   animation-name: slidein;
 }
@@ -71,6 +72,6 @@ body {
 
   to {
     margin-left: -50%;
-    width: 50%;
+    width: 30%;
   }
 }

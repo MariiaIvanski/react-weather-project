@@ -34,7 +34,7 @@ export default function App() {
           </a>
         </footer>
       </div>
-      <img src={snitch} alt="snitch" width="50px" className="snitch" />
+      <img src={snitch} alt="snitch" width="150px" className="snitch" />
     </div>
   );
 }
